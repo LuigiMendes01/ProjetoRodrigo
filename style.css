@@ -7,6 +7,18 @@ body{
 
     .Meio h1{
         color: whitesmoke;
+        margin-top: 10px;
+
+    }
+    .linha {
+        width: 40px;
+        background-color: #b2bec3;
+        margin-bottom: 20px; 
+        color: whitesmoke;
+        margin-bottom: 60px; 
+        height: 2px;   
+        margin-top: -15px;
+
     }
     .Meio {
         width: 300px;
@@ -42,7 +54,12 @@ body{
         border-radius: 10px;
         cursor: pointer; 
     }
-    /* .Meio input[type="submit"]:houver {
-        background: #ff6b6b;
-    } */
-    
+    .Meio input[type="submit"]:hover {
+        background: #586169;
+    }
+    .forget {
+        font-size: 10px;
+        color: whitesmoke;
+        text-align: center;
+        margin-top:-10px;
+    }
