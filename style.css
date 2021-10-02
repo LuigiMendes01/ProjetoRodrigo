@@ -1,0 +1,48 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #8395a7;
+    }
+
+    .Meio h1{
+        color: whitesmoke;
+    }
+    .Meio {
+        width: 300px;
+        padding: 40px;
+        position:absolute; top:50%; left: 50%; 
+        transform: translate(-50%,-50%);
+        background: #191919;
+        /* text-align: center; */
+    }
+    .Meio input[type="text"], .Meio input[type="password"]{
+        border: none;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #ff6b6b;
+        padding: 9px 15px;
+        width: 200px;
+        outline: none;
+        color: whitesmoke;
+        border-radius: 10px;   
+    }
+    .Meio input[type="submit"]{
+        border: none;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #1dd1a1;
+        padding: 9px 15px;
+        outline: none;
+        color: whitesmoke;
+        border-radius: 10px;
+        cursor: pointer; 
+    }
+    /* .Meio input[type="submit"]:houver {
+        background: #ff6b6b;
+    } */
+    
