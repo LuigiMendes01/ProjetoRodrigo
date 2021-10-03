@@ -8,8 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogar</title>
 </head>
-<body>
     <h1>jogar</h1>
     <script src="game.js"></script>
+
+    <input
+    id="white"
+    type="color"
+    value="#ffffff"
+    onchange="set_white(document.getElementById('white').value)"
+    />
+
+    <input
+    id="black"
+    type="color"
+    value="#000000"
+    onchange="set_black(document.getElementById('black').value)"
+    />
+
 </body>
 </html>

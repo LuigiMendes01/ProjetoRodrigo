@@ -5,6 +5,19 @@ let black, white;
 let x_size = width/8;
 let y_size = height/8;
 
+let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+let starting_position = fen.split(" ")[0];
+console.log(starting_position);
+console.log(starting_position.split("/"));
+
+function set_white(White) {
+    white = color(White);
+}
+
+function set_black(Black) {
+    black = color(Black);
+}
+
 function setup() {
     createCanvas(width, height);
     black = color(0, 0, 0);
@@ -21,7 +34,7 @@ function draw() {
             if ((x+y) % 2 == 1) { c = black; }
 
             fill(c);
-            rect(x * x_size, y* y_size, x_size, y_size);
+            rect(x * x_size, y * y_size, x_size, y_size);
         }
     }
 
