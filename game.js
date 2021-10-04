@@ -13,7 +13,6 @@ console.log(starting_position.split("/"));
 function set_white(White) {
     white = color(White);
 }
-
 function set_black(Black) {
     black = color(Black);
 }
@@ -38,4 +37,7 @@ function draw() {
         }
     }
 
+    // draw highlight square
+    fill("cyan");
+    rect(Math.floor(mouseX/x_size) * x_size, Math.floor(mouseY/y_size) * x_size, x_size, y_size);
 }
