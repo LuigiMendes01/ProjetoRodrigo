@@ -33,13 +33,19 @@ function draw_board() {
     }
 }
 
+function draw_highlightSquare() {
+    fill("RED");
+    if (highlight) {
+        rect(destaque_x, destaque_y, x_size, y_size);
+    }
+}
+
 function setup() {
     canvas = createCanvas(width, height);
     canvas.mousePressed(set_highlightSquare);
     for (let element of document.getElementsByClassName("p5Canvas")) {
         element.addEventListener("contextmenu", (e) => e.preventDefault());
     }
-    print(canvas.oncontextmenu);
     black = color(0, 0, 0);
     white = color(255, 255, 255);
     size = 30;
@@ -52,10 +58,7 @@ function draw() {
     draw_board();
 
     // desenhar quadrado destaque
-    fill("RED");
-    if (highlight) {
-        rect(destaque_x, destaque_y, x_size, y_size);
-    }
+    draw_highlightSquare();
 }
 
 function set_highlightSquare() {
