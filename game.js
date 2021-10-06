@@ -5,6 +5,10 @@ let black, white;
 let x_size = width/8;
 let y_size = height/8;
 
+let highlight_x = 0;
+let highlight_y = 0;
+let highlight = false;
+
 let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 let starting_position = fen.split(" ")[0];
 console.log(starting_position);
@@ -30,7 +34,12 @@ function draw_board() {
 }
 
 function setup() {
-    createCanvas(width, height);
+    canvas = createCanvas(width, height);
+    canvas.mousePressed(set_highlightSquare);
+    for (let element of document.getElementsByClassName("p5Canvas")) {
+        element.addEventListener("contextmenu", (e) => e.preventDefault());
+    }
+    print(canvas.oncontextmenu);
     black = color(0, 0, 0);
     white = color(255, 255, 255);
     size = 30;
@@ -42,7 +51,24 @@ function draw() {
     
     draw_board();
 
-    // draw highlight square
-    fill("cyan");
-    rect(Math.floor(mouseX/x_size) * x_size, Math.floor(mouseY/y_size) * x_size, x_size, y_size);
+    // desenhar quadrado destaque
+    fill("RED");
+    if (highlight) {
+        rect(destaque_x, destaque_y, x_size, y_size);
+    }
+}
+
+function set_highlightSquare() {
+    switch (mouseButton) {
+        case LEFT:
+            highlight = true;
+            destaque_x = Math.floor(mouseX/x_size) * x_size;
+            destaque_y = Math.floor(mouseY/y_size) * y_size;
+            break;
+        case RIGHT:
+            highlight = false;
+            break;
+        default:
+            break;
+    }
 }
