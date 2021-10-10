@@ -8,39 +8,20 @@ class Board {
 }
 
 let board = new Board(8, 8);
-board.squares[0] = "torre";
-board.squares[1] = "cavalo";
-board.squares[2] = "bispo";
-board.squares[3] = "rainha";
-board.squares[4] = "rei";
-board.squares[5] = "bispo";
-board.squares[6] = "cavalo";
-board.squares[7] = "torre";
-board.squares[8] = "peão";
-board.squares[9] = "peão";
-board.squares[10] = "peão";
-board.squares[11] = "peão";
-board.squares[12] = "peão";
-board.squares[13] = "peão";
-board.squares[14] = "peão";
-board.squares[15] = "peão";
 
-board.squares[48] = "peão";
-board.squares[49] = "peão";
-board.squares[50] = "peão";
-board.squares[51] = "peão";
-board.squares[52] = "peão";
-board.squares[53] = "peão";
-board.squares[54] = "peão";
-board.squares[55] = "peão";
-board.squares[56] = "torre";
-board.squares[57] = "cavalo";
-board.squares[58] = "bispo";
-board.squares[59] = "rainha";
-board.squares[60] = "rei";
-board.squares[61] = "bispo";
-board.squares[62] = "cavalo";
-board.squares[63] = "torre";
+let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+let starting_position = fen.split(" ")[0].replaceAll("/", "");
+
+let cont = 0;
+for (var i = 0; i < starting_position.length; i++) {
+    if (isNaN(starting_position[i])) {
+        board.squares[cont] = starting_position[i].toLowerCase();
+        cont++;
+    }
+    else {
+        cont += Number(starting_position[i]);
+    }
+}
 
 let width = 400;
 let height = 400;
@@ -52,9 +33,6 @@ let y_size = height/8;
 let highlight_x = 0;
 let highlight_y = 0;
 let highlight = false;
-
-let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-let starting_position = fen.split(" ")[0];
 
 function set_white(White) {
     white = color(White);
@@ -124,28 +102,27 @@ function draw() {
             let sprite;
             
             switch(board.squares[piece]) {
-                case "peão":
+                case "p":
                     sprite = peao;
                     break;
-                case "bispo":
+                case "b":
                     sprite = bispo;
                     break;
-                case "cavalo":
+                case "n":
                     sprite = cavalo;
                     break;
-                case "torre":
+                case "r":
                     sprite = torre;
                     break;
-                case "rainha":
+                case "q":
                     sprite = rainha;
                     break;
-                case "rei":
+                case "k":
                     sprite = rei;
                     break;
                 default:
                     break;
             }
-
             image(sprite, x, y);
         }
     }
