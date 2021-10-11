@@ -11,77 +11,97 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    
+    <!-- php -S localhost: 4000 -->
     <title>Jogar</title>
 </head>
 <body>
     
     <script src="game.js"></script>
 
-    <header class="Menu">
-        Xadrez Online 
-        Forum 
-        Sair
-    </header>
-    
-    <div class="sidebar">
-        <div class="logo_content">
-            <div class="Logo">
-                <i class='bx bxs-user-check'></i>
-                    <div class="logo_name">CodingLab</div>
-            </div>
-            <i class='bx bx-menu-alt-right' id="Menu_Botton"></i>
+    <div class="Menu">
+        <div class="logo-details">
+          <i class='bx bxs-chess icon'></i>
+            <div class="logo_name">Game Name</div>
+            <i class='bx bx-menu' id="btn" ></i>
         </div>
-        <ul class="nav_list">
-            <li>
-                <i class='bx bx-search-alt-2' ></i>
-                <input type="text" placeholder="Search...">
-                </a>
-                <!-- <span class="tooltop">Dashboard</span> -->
-            </li>            
-            <li>
-                <a href="#">
-                <i class='bx bx-user-check' ></i>
-                <span class="links">Messages</span>
-                </a>
-                <!-- <span class="tooltop">Dashboard</span> -->
-            </li>            
-            <li>
-                <a href="#">
-                <i class='bx bx-timer' ></i>
-                <span class="links">Timer</span>
-                </a>
-                <!-- <span class="tooltop">Dashboard</span> -->
-            </li>            
-            <li>
-                <a href="#">
-                <i class='bx bx-heart' ></i>
-                <span class="links">Vitorias</span>
-                </a>
-                <!-- <span class="tooltop">Dashboard</span> -->
-            </li>            
-            <li>
-                <a href="#">
-                <i class='bx bx-cog'></i>
-                <span class="links">Configurações</span>
-                </a>
-                <!-- <span class="tooltop">Dashboard</span> -->
-            </li>
+        <ul class="nav-list">
+          <li>
+              <i class='bx bx-search' ></i>
+             <input type="text" placeholder="Procurar">
+             <span class="Sub_Mensagem">Pesquisar</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-grid-alt'></i> 
+              <span class="Mensagem">Mudar</span>
+            </a>
+             <span class="Sub_Mensagem">Mudar</span>
+          </li>
+          <li>
+           <a href="#">
+             <i class='bx bx-user' ></i>
+             <span class="Mensagem">Usuário</span>
+           </a>
+           <span class="Sub_Mensagem">Usuário</span>
+         </li>
+         <li>
+           <a href="#">
+             <i class='bx bx-chat' ></i>
+             <span class="Mensagem">Mensagens</span>
+           </a>
+           <span class="Sub_Mensagem">Mensagens</span>
+         </li>
+         <li>
+          <a href="#">
+          <i class='bx bx-timer' ></i>
+          <span class="Mensagem">Timer</span>
+          </a>
+          <span class="Sub_Mensagem">Timer</span> 
+         </li>
+         <li>
+           <a href="#">
+             <i class='bx bx-cog' ></i>
+             <span class="Mensagem">Configurações</span>
+           </a>
+           <span class="Sub_Mensagem">Configurações</span>
+         </li>
+         <li class="Usuário">
+             <div class="Usuário-Detalhes">
+              <img src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt=""> 
+               <div class="name_job">
+                 <div class="name">Nick Name</div>
+                 <div class="job">Points</div>
+               </div>
+             </div>
+             <i class='bx bx-log-out' id="Sair" ></i>
+         </li>
         </ul>
-        <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    <img src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt=""> 
-                    <div class="name_job">
-                        <div class="name">Nick Name</div>
-                        <div class="job">Points</div>
-                    </div>
-                </div>
-                <i class='bx bx-log-out' id="log_out" ></i>
-            </div>  
-        </div>
-    </div>
-
+      </div>
+    
+      <script>
+      let Menu = document.querySelector(".Menu");
+      let closeBtn = document.querySelector("#btn");
+      let searchBtn = document.querySelector(".bx-search");
+    
+      closeBtn.addEventListener("click", ()=>{
+        Menu.classList.toggle("open");
+        menuBtnChange();//calling the function(optional)
+      });
+    
+      searchBtn.addEventListener("click", ()=>{ // Menu open when you click on the search iocn
+        Menu.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+      });
+    
+      // following are the code to change Menu button(optional)
+      function menuBtnChange() {
+       if(Menu.classList.contains("open")){
+         closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+       }else {
+         closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+       }
+      }
+      </script>
     <footer class="colors">
         <label>Monte seu tabuleiro: </label>
     <input id="white" type="color" value="#ffffff" onchange="set_white(document.getElementById('white').value)"/>
