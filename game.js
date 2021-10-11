@@ -9,19 +9,21 @@ class Board {
 
 let board = new Board(8, 8);
 
-let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-let starting_position = fen.split(" ")[0].replaceAll("/", "");
-
-let cont = 0;
-for (var i = 0; i < starting_position.length; i++) {
-    if (isNaN(starting_position[i])) {
-        board.squares[cont] = starting_position[i].toLowerCase();
-        cont++;
-    }
-    else {
-        cont += Number(starting_position[i]);
+function load_fen(fen) {
+    let starting_position = fen.split(" ")[0].replaceAll("/", "");
+    let cont = 0;
+    for (var i = 0; i < starting_position.length; i++) {
+        if (isNaN(starting_position[i])) {
+            board.squares[cont] = starting_position[i].toLowerCase();
+            cont++;
+        }
+        else {
+            cont += Number(starting_position[i]);
+        }
     }
 }
+
+load_fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
 let width = 400;
 let height = 400;
