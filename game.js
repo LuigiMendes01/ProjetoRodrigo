@@ -14,7 +14,7 @@ function load_fen(fen) {
     let cont = 0;
     for (var i = 0; i < starting_position.length; i++) {
         if (isNaN(starting_position[i])) {
-            board.squares[cont] = starting_position[i].toLowerCase();
+            board.squares[cont] = starting_position[i];
             cont++;
         }
         else {
@@ -62,14 +62,22 @@ function draw_highlightSquare() {
     }
 }
 
-let peao, bispo, cavalo, torre, rainha, rei;
+let wp, wb, wn, wr, wq, wk,
+    bp, bb, bn, br, bq, bk;
 function preload() {
-    peao = loadImage("peao.png");
-    bispo = loadImage("bispo.png");
-    cavalo = loadImage("cavalo.png");
-    torre = loadImage("torre.png");
-    rainha = loadImage("rainha.png");
-    rei = loadImage("rei.png");
+    wp = loadImage("wp.png");
+    wb = loadImage("wb.png");
+    wn = loadImage("wn.png");
+    wr = loadImage("wr.png");
+    wq = loadImage("wq.png");
+    wk = loadImage("wk.png");
+
+    bp = loadImage("bp.png");
+    bb = loadImage("bb.png");
+    bn = loadImage("bn.png");
+    br = loadImage("br.png");
+    bq = loadImage("bq.png");
+    bk = loadImage("bk.png");
 }
 
 function setup() {
@@ -105,22 +113,41 @@ function draw() {
             
             switch(board.squares[piece]) {
                 case "p":
-                    sprite = peao;
+                    sprite = bp;
                     break;
                 case "b":
-                    sprite = bispo;
+                    sprite = bb;
                     break;
                 case "n":
-                    sprite = cavalo;
+                    sprite = bn;
                     break;
                 case "r":
-                    sprite = torre;
+                    sprite = br;
                     break;
                 case "q":
-                    sprite = rainha;
+                    sprite = bq;
                     break;
                 case "k":
-                    sprite = rei;
+                    sprite = bk;
+                    break;
+
+                case "P":
+                    sprite = wp;
+                    break;
+                case "B":
+                    sprite = wb;
+                    break;
+                case "N":
+                    sprite = wn;
+                    break;
+                case "R":
+                    sprite = wr;
+                    break;
+                case "Q":
+                    sprite = wq;
+                    break;
+                case "K":
+                    sprite = wk;
                     break;
                 default:
                     break;
