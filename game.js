@@ -64,6 +64,7 @@ function draw_highlightSquare() {
 
 let wp, wb, wn, wr, wq, wk,
     bp, bb, bn, br, bq, bk;
+let sprites;
 function preload() {
     wp = loadImage("wp.png");
     wb = loadImage("wb.png");
@@ -78,6 +79,10 @@ function preload() {
     br = loadImage("br.png");
     bq = loadImage("bq.png");
     bk = loadImage("bk.png");
+    sprites = {
+        P:wp, B:wb, N:wn, R:wr, Q:wq, K:wk,
+        p:bp, b:bb, n:bn, r:br, q:bq, k:bk
+    };
 }
 
 function setup() {
@@ -99,7 +104,8 @@ function draw() {
     draw_highlightSquare();
     // desenhar peças
     for (piece in board.squares) {
-        if (board.squares[piece] != 0) {
+        piece_type = board.squares[piece];
+        if (piece_type != 0) {
             let piece_x = piece;
             let piece_y = 0;
             while (piece_x >= 8) {
@@ -109,49 +115,7 @@ function draw() {
 
             let x = piece_x * x_size;
             let y = piece_y * y_size;
-            let sprite;
-            
-            switch(board.squares[piece]) {
-                case "p":
-                    sprite = bp;
-                    break;
-                case "b":
-                    sprite = bb;
-                    break;
-                case "n":
-                    sprite = bn;
-                    break;
-                case "r":
-                    sprite = br;
-                    break;
-                case "q":
-                    sprite = bq;
-                    break;
-                case "k":
-                    sprite = bk;
-                    break;
-
-                case "P":
-                    sprite = wp;
-                    break;
-                case "B":
-                    sprite = wb;
-                    break;
-                case "N":
-                    sprite = wn;
-                    break;
-                case "R":
-                    sprite = wr;
-                    break;
-                case "Q":
-                    sprite = wq;
-                    break;
-                case "K":
-                    sprite = wk;
-                    break;
-                default:
-                    break;
-            }
+            let sprite = sprites[piece_type];
             image(sprite, x, y);
         }
     }
