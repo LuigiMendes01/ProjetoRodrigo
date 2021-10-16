@@ -36,11 +36,50 @@ let highlight_x = 0;
 let highlight_y = 0;
 let highlight = false;
 
-function set_white(White) {
-    white = color(White);
+let cores = [
+    ["#99c1f1", "#1a5fb4"],
+    ["#8ff0a4", "#26a269"],
+    ["#f9f06b", "#e5a50a"],
+    ["#ffbe6f", "#e66100"],
+    ["#f66151", "#a51d2d"],
+    ["#dc8add", "#613583"],
+    ["#cdab8f", "#63452c"],
+    ["#ffffff", "#9a9996"],
+    ["#77767b", "#3d3846"]
+];
+let a = 0;
+
+function set_white(newWhite) {
+    white = color(newWhite);
+    document.getElementById("white").value = newWhite;
 }
-function set_black(Black) {
-    black = color(Black);
+
+function set_black(newBlack) {
+    black = color(newBlack);
+    document.getElementById("black").value = newBlack;
+}
+
+function prev_color() {
+    if (a > 0) {
+        a--;
+    }
+    else {
+        a = cores.length - 1;
+    }
+
+    set_white(cores[a][0]);
+    set_black(cores[a][1]);
+}
+
+function next_color() {
+    if (a < cores.length - 1) {
+        a++;
+    }
+    else {
+        a = 0;
+    }
+    set_white(cores[a][0]);
+    set_black(cores[a][1]);
 }
 
 function draw_board() {
@@ -91,8 +130,8 @@ function setup() {
     for (let element of document.getElementsByClassName("p5Canvas")) {
         element.addEventListener("contextmenu", (e) => e.preventDefault());
     }
-    black = color(0, 0, 0);
-    white = color(255, 255, 255);
+    white = color(cores[0][0]);
+    black = color(cores[0][1]);
     size = 30;
 }
 

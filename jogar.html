@@ -104,9 +104,10 @@
       </script>
     <footer class="colors">
         <label>Monte seu tabuleiro: </label>
-    <input id="white" type="color" value="#ffffff" onchange="set_white(document.getElementById('white').value)"/>
-
-    <input id="black" type="color" value="#000000" onchange="set_black(document.getElementById('black').value)"/>
+    <input id="white" type="color" value="#99c1f1" onchange="set_white(this.value)"/>
+    <input id="black" type="color" value="#1a5fb4" onchange="set_black(this.value)"/>
+    <button onclick="prev_color()"><</button>
+    <button onclick="next_color()">></button>
     </footer>
 </body>
 </html>
